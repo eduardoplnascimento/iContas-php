@@ -89,7 +89,9 @@ class ExpenseController extends Controller
         }
 
         $attributes = $request->only([
-            'name'
+            'title',
+            'value',
+            'due_date'
         ]);
 
         $expense->update($attributes);
@@ -130,7 +132,7 @@ class ExpenseController extends Controller
             abort(404);
         }
 
-        $expense->update(['paid' => 1]);
+        $expense->update(['paid' => 0]);
 
         return redirect('/dashboard')->with('success', 'Despesa paga com sucesso');
     }
@@ -143,6 +145,14 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //
+        $user = auth()->user();
+
+        if ($expense->user_id !== $user->id) {
+            abort(403);
+        }
+
+        $expense->delete();
+
+        return redirect('/dashboard')->with('success', 'Despesa deletada com sucesso');
     }
 }
