@@ -93,11 +93,11 @@ php artisan serve
 
 - A partir dessa página é possível acessar a página de *login*:
 
-![](https://i.imgur.com/3FB2ZwL.png)
+![](https://i.imgur.com/PBY7JIg.png)
 
 - A partir da página de *login*, você pode acessar a página de cadastro:
 
-![](https://i.imgur.com/9te92gX.png)
+![](https://i.imgur.com/Zk6cEhi.png)
 
 - Após fazer o *login* ou cadastro, o usuário é redirecionado para a rota ```/dashboard``` onde é possível utilizar o sistema
 
